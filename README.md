@@ -1,21 +1,16 @@
 ![interface](https://github.com/RonYoung666/CTRibFractureRecognition/blob/master/interface.png)
 # CT Rib fracture recognition tool based on CNN
- 基于卷积神经网络的肋骨骨折识别工具
+# 基于卷积神经网络的肋骨骨折识别工具
 
-It's a tool that can recognize rib fracture in CT image (DICOM file), you can use it as:
+It's a tool that can recognize rib fracture in CT image (DICOM file), you can use it as follow:
 
-1. [The specification](spec.md) for how a standard README should look.
-2. A link to a linter you can use to keep your README maintained ([work in progress](https://github.com/RichardLitt/standard-readme/issues/5)).
-3. A link to [a generator](https://github.com/RichardLitt/generator-standard-readme) you can use to create standard READMEs.
-4. [A badge](#badge) to point to this spec.
-5. [Examples of standard READMEs](example-readmes/) - such as this file you are reading.
-
-Standard Readme is designed for open source libraries. Although it’s [historically](#background) made for Node and npm projects, it also applies to libraries in other languages and package managers.
+1. Detect rib fractures in CT images.
+2. Replace the CNN part with your own CNN to detect target objects in other CT images.
+3. Replace the input part and the CNN part to detect target object in regular image.
 
 
 ## Table of Contents
 
-- [Background](#background)
 - [Install](#install)
 - [Usage](#usage)
 	- [Generator](#generator)
@@ -26,48 +21,37 @@ Standard Readme is designed for open source libraries. Although it’s [historic
 - [Contributing](#contributing)
 - [License](#license)
 
-## Background
-
-Standard Readme started with the issue originally posed by [@maxogden](https://github.com/maxogden) over at [feross/standard](https://github.com/feross/standard) in [this issue](https://github.com/feross/standard/issues/141), about whether or not a tool to standardize readmes would be useful. A lot of that discussion ended up in [zcei's standard-readme](https://github.com/zcei/standard-readme/issues/1) repository. While working on maintaining the [IPFS](https://github.com/ipfs) repositories, I needed a way to standardize Readmes across that organization. This specification started as a result of that.
-
-> Your documentation is complete when someone can use your module without ever
-having to look at its code. This is very important. This makes it possible for
-you to separate your module's documented interface from its internal
-implementation (guts). This is good because it means that you are free to
-change the module's internals as long as the interface remains the same.
-
-> Remember: the documentation, not the code, defines what a module does.
-
-~ [Ken Williams, Perl Hackers](http://mathforum.org/ken/perl_modules.html#document)
-
-Writing READMEs is way too hard, and keeping them maintained is difficult. By offloading this process - making writing easier, making editing easier, making it clear whether or not an edit is up to spec or not - you can spend less time worrying about whether or not your initial documentation is good, and spend more time writing and using code.
-
-By having a standard, users can spend less time searching for the information they want. They can also build tools to gather search terms from descriptions, to automatically run example code, to check licensing, and so on.
-
-The goals for this repository are:
-
-1. A well defined **specification**. This can be found in the [Spec document](spec.md). It is a constant work in progress; please open issues to discuss changes.
-2. **An example README**. This Readme is fully standard-readme compliant, and there are more examples in the `example-readmes` folder.
-3. A **linter** that can be used to look at errors in a given Readme. Please refer to the [tracking issue](https://github.com/RichardLitt/standard-readme/issues/5).
-4. A **generator** that can be used to quickly scaffold out new READMEs. See [generator-standard-readme](https://github.com/RichardLitt/generator-standard-readme).
-5. A **compliant badge** for users. See [the badge](#badge).
 
 ## Install
 
-This project uses [node](http://nodejs.org) and [npm](https://npmjs.com). Go check them out if you don't have them locally installed.
+This project uses the libraries below. Go check them out if you don't have them locally installed.
 
-```sh
-$ npm install --global standard-readme-spec
-```
+|Package              |Version
+|-------------------- |-----------
+|dicom                |0.9.9.post1
+|lxml                 |4.3.4
+|matplotlib           |3.1.3
+|numpy                |1.16.4+mkl
+|object-detection     |0.1
+|opencv-python        |4.2.0.32
+|pandas               |0.25.0
+|Pillow               |5.4.1
+|pydicom              |1.4.2
+|PyQt5                |5.13.0
+|tensorboard          |1.13.0
+|tensorflow-estimator |1.13.0
+|tensorflow-gpu       |1.13.2
 
 ## Usage
 
-This is only a documentation package. You can print out [spec.md](spec.md) to your console:
+### Detect rib fractures in CT images
+In Windows Command Prompt(cmd), input python appMain.py.
+Click "打开", choose your DICOM directory.
+Click "检测此CT
 
-```sh
-$ standard-readme-spec
-# Prints out the standard-readme spec
-```
+### Replace the CNN part with your own CNN to detect target objects in other CT images
+
+### Replace the input part and the CNN part to detect target object in regular image
 
 ### Generator
 
@@ -113,3 +97,4 @@ This project exists thanks to all the people who contribute.
 ## License
 
 [MIT](LICENSE) © Richard Littauer
+
