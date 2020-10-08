@@ -1,0 +1,30 @@
+item {
+    id: 1
+    name: 'negative'
+}
+
+item {
+    id: 2
+    name: 'negative_near_spine'
+}
+
+item {
+    id: 3
+    name: 'positive'
+}
+
+item {
+    id: 4
+    name: 'positive'
+}
+
+item {
+    id: 5
+    name: 'composition_abnormal'
+}
+
+item {
+    id: 6
+    name: 'shape_abnormal'
+}
+
