@@ -45,9 +45,9 @@
 
 ### 替换 CNN 部分为你自己的神经网络用来检测 CT 图像中的其他病灶
 
-参考 TensorFlow [Object Detection API](https://tensorflow-object-detection-api-tutorial.readthedocs.io/en/latest/) 教程构建自己的神经网络，将 trained_module3270/frozen_inference_graph.pb 文件替换为自己训练好的模型。
+参考 TensorFlow [Object Detection API](https://tensorflow-object-detection-api-tutorial.readthedocs.io/en/latest/) 教程构建自己的神经网络，将 trained_module3270/frozen_inference_graph.pb 文件替换为自己训练好的模型即可。
 
-参考教程训练模型的过程中需要一些脚本，我也已经上传到了库中，详情见 scripts 文件夹。
+参考教程训练模型的过程中需要一些脚本，我已将其上传到了库中，详情见 scripts 文件夹。
 
 由于 DICOM 文件的特殊性，转换为普通图片还需要进行一些转换操作，scripts/make_data 文件夹中的脚本是我自己写的，具体用途如下：
 
