@@ -1,30 +1,21 @@
 ![interface](https://github.com/RonYoung666/CTRibFractureRecognition/blob/master/interface.png)
-# CT Rib fracture recognition tool based on CNN
-# 基于卷积神经网络的肋骨骨折识别工具
+# 基于 ResNet50 的 CT 图像肋骨骨折识别工具
 
-It's a tool that can recognize rib fracture in CT image (DICOM file), you can use it as follow:
+一个用来识别 CT 图像(DICOM)中肋骨骨折的 Windows 桌面工具，识别部分使用了 ResNet50 网络，调用了 TensorFlow 的 [Object Detection API](https://tensorflow-object-detection-api-tutorial.readthedocs.io/en/latest/)，桌面程序部分使用 [PyQt5](https://doc.qt.io/qtforpython/) 编写而成。
 
-1. Detect rib fractures in CT images.
-2. Replace the CNN part with your own CNN to detect target objects in other CT images.
-3. Replace the input part and the CNN part to detect target object in regular image.
+本工具的特点是能够批量导入一位患者的所有 CT 图像并按照切片类型进行分类排序，并且能够进行批量检测与查看。
 
+本工具对于大家有如下 3 个用途：
 
-## Table of Contents
-
-- [Install](#install)
-- [Usage](#usage)
-	- [Generator](#generator)
-- [Badge](#badge)
-- [Example Readmes](#example-readmes)
-- [Related Efforts](#related-efforts)
-- [Maintainers](#maintainers)
-- [Contributing](#contributing)
-- [License](#license)
+1. 直接拿来检测 CT 图像中的肋骨骨折
+2. 替换 CNN 部分为你自己的神经网络用来检测 CT 图像中的其他病灶
+3. 替换输入部分和 CNN 部分用来检测普通图像中的目标物体
 
 
-## Install
+## 安装
 
-This project uses the libraries below. Go check them out if you don't have them locally installed.
+1. 下载源代码
+2. 本工具使用了下面的依赖，使用前请先检查依赖是否已全部安装好
 
 |Package              |Version
 |-------------------- |-----------
@@ -42,59 +33,34 @@ This project uses the libraries below. Go check them out if you don't have them 
 |tensorflow-estimator |1.13.0
 |tensorflow-gpu       |1.13.2
 
-## Usage
+## 使用方法
 
-### Detect rib fractures in CT images
-In Windows Command Prompt(cmd), input python appMain.py.
-Click "打开", choose your DICOM directory.
-Click "检测此CT
+### 直接拿来检测 CT 图像中的肋骨骨折
 
-### Replace the CNN part with your own CNN to detect target objects in other CT images
+1. 进入 Windows 控制台
+2. 进入项目文件夹，并运行 python appMain.py
+3. 点击 “打开”, 选择患者的 DICOM 文件夹
+4. 点击 “检测此CT” 可以检测单张 CT
+5. 点击 “检测所有” 可以批量顺序检测所有 CT
 
-### Replace the input part and the CNN part to detect target object in regular image
+### 替换 CNN 部分为你自己的神经网络用来检测 CT 图像中的其他病灶
 
-### Generator
+参考 TensorFlow [Object Detection API](https://tensorflow-object-detection-api-tutorial.readthedocs.io/en/latest/) 教程构建自己的神经网络，将 trained_module3270/frozen_inference_graph.pb 文件替换为自己训练好的模型。
 
-To use the generator, look at [generator-standard-readme](https://github.com/RichardLitt/generator-standard-readme). There is a global executable to run the generator in that package, aliased as `standard-readme`.
+参考教程训练模型的过程中需要一些脚本，我也已经上传到了库中，详情见 scripts 文件夹。
 
-## Badge
+由于 DICOM 文件的特殊性，转换为普通图片还需要进行一些转换操作，scripts/make_data 文件夹中的脚本是我自己写的，具体用途如下：
 
-If your README is compliant with Standard-Readme and you're on GitHub, it would be great if you could add the badge. This allows people to link back to this Spec, and helps adoption of the README. The badge is **not required**.
-
-[![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
-
-To add in Markdown format, use this code:
-
-```
-[![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
-```
-
-## Example Readmes
-
-To see how the specification has been applied, see the [example-readmes](example-readmes/).
-
-## Related Efforts
-
-- [Art of Readme](https://github.com/noffle/art-of-readme) - 💌 Learn the art of writing quality READMEs.
-- [open-source-template](https://github.com/davidbgk/open-source-template/) - A README template to encourage open-source contributions.
-
-## Maintainers
-
-[@RichardLitt](https://github.com/RichardLitt).
-
-## Contributing
-
-Feel free to dive in! [Open an issue](https://github.com/RichardLitt/standard-readme/issues/new) or submit PRs.
-
-Standard Readme follows the [Contributor Covenant](http://contributor-covenant.org/version/1/3/0/) Code of Conduct.
-
-### Contributors
-
-This project exists thanks to all the people who contribute. 
-<a href="graphs/contributors"><img src="https://opencollective.com/standard-readme/contributors.svg?width=890&button=false" /></a>
+|脚本名                |用途
+|--------------------- |-----------
+|dcm2jpg.py            |将 DICOM 文件转换为 JPEG 文件
+|make_mirrored_jpgs.py |镜像翻转图片来增加数据量
+|make_mirrored_xmls.py |镜像翻转标定框
+|split.py              |划分训练集和测试集
 
 
-## License
+### 替换输入部分和 CNN 部分用来检测普通图像中的目标物体
 
-[MIT](LICENSE) © Richard Littauer
+替换 CNN 部分方法同上，替换输入部分需要自己仔细修改一些源码，本工具中进行了许多针对 CT 图像的操作，修改为针对普通图像的操作即可。
 
+对 PyQt5 不熟悉的朋友可以参考书籍[《Python Qt GUI 与数据可视化编程》](https://www.epubit.com/bookDetails?id=UB6c7836a7146b7)，本工具的桌面软件部分基本是参考此书写的，在此对作者表示感谢！
