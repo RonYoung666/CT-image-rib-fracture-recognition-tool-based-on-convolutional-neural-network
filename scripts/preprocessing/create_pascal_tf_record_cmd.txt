@@ -1,0 +1,6 @@
+# Create train data:
+python create_pascal_tf_record.py --data_dir=D:\CTrfd\TensorFlow\workspace\training_demo\images\trainVOC --set=trainval --annotations_dir=D:\CTrfd\TensorFlow\workspace\training_demo\images\trainVOC\Annotations --year=VOC2012 --output_path=D:\CTrfd\TensorFlow\workspace\training_demo\annotations\train.record --label_map_path=D:\CTrfd\TensorFlow\workspace\training_demo\annotations\label_map.pbtxt
+
+
+# Create test data:
+python create_pascal_tf_record.py --data_dir=D:\CTrfd\TensorFlow\workspace\training_demo\images\testVOC --set=test --annotations_dir=D:\CTrfd\TensorFlow\workspace\training_demo\images\testVOC\Annotations --year=VOC2012 --output_path=D:\CTrfd\TensorFlow\workspace\training_demo\annotations\test.record --label_map_path=D:\CTrfd\TensorFlow\workspace\training_demo\annotations\label_map.pbtxt

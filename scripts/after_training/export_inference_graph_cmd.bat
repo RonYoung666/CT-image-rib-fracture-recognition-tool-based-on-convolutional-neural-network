@@ -1,0 +1,1 @@
+python export_inference_graph.py --input_type=image_tensor --pipeline_config_path=D:\CTrfd\TensorFlow\workspace\training_demo\training\faster_rcnn_resnet50_coco.config --trained_checkpoint_prefix=D:\CTrfd\TensorFlow\workspace\training_demo\training\model.ckpt-2000 --output_directory=D:\CTrfd\TensorFlow\workspace\test\trained_module3270

@@ -1,0 +1,5 @@
+# Create train data:
+python xml_to_csv.py -i D:\CTrfd\TensorFlow\workspace\training_demo\images\train -o D:\CTrfd\TensorFlow\workspace\training_demo\annotations\train_labels.csv
+
+# Create test data:
+python xml_to_csv.py -i D:\CTrfd\TensorFlow\workspace\training_demo\images\test -o D:\CTrfd\TensorFlow\workspace\training_demo\annotations\test_labels.csv

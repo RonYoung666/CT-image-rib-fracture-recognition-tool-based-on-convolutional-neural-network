@@ -1,0 +1,5 @@
+# Create train data:
+python generate_tfrecord.py --label0=negative --label1=negative_near_spine --label2=positive --label3=positive_near_spine --label4=composition_abnormal --label5=shape_abnormal --csv_input=D:\CTrfd\TensorFlow\workspace\training_demo\annotations\train_labels.csv --img_path=D:\CTrfd\TensorFlow\workspace\training_demo\images\train --output_path=D:\CTrfd\TensorFlow\workspace\training_demo\annotations\train.record
+
+# Create test data:
+python generate_tfrecord.py --label0=negative --label1=negative_near_spine --label2=positive --label3=positive_near_spine --label4=composition_abnormal --label5=shape_abnormal --csv_input=D:\CTrfd\TensorFlow\workspace\training_demo\annotations\test_labels.csv --img_path=D:\CTrfd\TensorFlow\workspace\training_demo\images\test --output_path=D:\CTrfd\TensorFlow\workspace\training_demo\annotations\test.record
