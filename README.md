@@ -1,4 +1,4 @@
-![interface](https://github.com/RonYoung666/CTRibFractureRecognition/blob/master/interface.png)
+![interface](https://github.com/RonYoung666/CT-image-rib-fracture-recognition-tool-based-on-convolutional-neural-network/blob/master/interface.png)
 # 基于卷积神经网络的 CT 图像肋骨骨折识别工具
 
 一个用来识别 CT 图像(DICOM)中肋骨骨折的 Windows 桌面工具，识别部分使用了 ResNet50 网络，调用了 TensorFlow 的 [Object Detection API](https://tensorflow-object-detection-api-tutorial.readthedocs.io/en/latest/)，桌面程序部分使用 [PyQt5](https://doc.qt.io/qtforpython/) 编写而成。
